@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Problems</title>
+  </head>
+  <body>
+    <h1>Problem 1: Rotate Array</h1>
+    <script>
+      function rotateArray(array, k) {
+        // Write your code here
+        for (let i = 0; i<k; i++){
+          array.unshift(array.pop())
+        }
+        return(array)
+
+      
+
+      }
+
+      // Example usage
+      const rotated = rotateArray([1, 2, 3, 4, 5, 6, 7], 3);
+      console.log(rotated); // Output should be: [5, 6, 7, 1, 2, 3, 4]
+    </script>
+
+    <h1>Problem 2: Find Intersection of Two Arrays</h1>
+    <script>
+      function findIntersection(arr1, arr2) {
+        // Write your code here
+         inter = [];
+
+        for (const n of arr1){
+          if(arr2.includes(n) && !inter.includes(n)){
+            inter.push(n)
+          }
+        }
+        return(inter)
+        
+          }
+
+      // Example usage
+      const intersection = findIntersection([1, 2, 2, 1], [2, 2]);
+      console.log(intersection); // Output should be: [2]
+    </script>
+
+    <h1>Problem 3: Is Power of Two</h1>
+    <script>
+      function isPowerOfTwo(number) {
+        // Write your code here
+        if(number % 2 == 0){
+          return true;
+        }
+        else{
+          return false;
+        }
+        return(number)
+      }
+
+      // Example usage
+      const powerOfTwo = isPowerOfTwo(16);
+      console.log(powerOfTwo); // Output should be: true
+    </script>
+
+    <h1>Problem 4: Is Leap Year</h1>
+    <script>
+      function isLeapYear(year) {
+        // Write your code here using a ternary operator
+        let check = year;
+        let leap = (year %4 ==0) ? "Leap Year" : "Not a leap year";
+
+        return(leap)
+      }
+
+      // Example usage
+      const leapYear = isLeapYear(2020);
+      console.log(leapYear); // Output should be: "Leap Year"
+    </script>
+
+    <h1>Problem 5: Character Frequency</h1>
+    <script>
+      function charFrequency(string) {
+        // Write your code here
+        const freq = new Map();
+
+        for (const char of string) {
+      
+        if (freq.has(char)) {
+            
+            freq.set(char, freq.get(char) + 1);
+        } else {
+            
+            freq.set(char, 1);
+        }
+    }
+    
+    return freq;
+}
+      // Example usage
+      const frequency = charFrequency("hello");
+      console.log(frequency); // Output should be: Map { 'h' => 1, 'e' => 1, 'l' => 2, 'o' => 1 }
+    </script>
+
+    <h1>Problem 6: Group Anagrams</h1>
+    <script>
+      function groupAnagrams(words) {
+        // Write your code here
+        const anagrams = {};
+
+        for (const word of words) { 
+        const grams = [word]
+
+         if (!anagrams[grams]) {
+            anagrams[grams] = [];
+        }
+        
+        anagrams[grams].push(word);
+    }
+
+
+    const result = [];
+    for (const key in anagrams) {
+        result.push(anagrams[key]);
+    }
+
+    return result;
+    }
+
+      // Example usage
+      const anagrams = groupAnagrams([
+        "eat",
+        "tea",
+        "tan",
+        "ate",
+        "nat",
+        "bat",
+      ]);
+      console.log(anagrams); // Output should be: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+    </script>
+  </body>
+</html>
